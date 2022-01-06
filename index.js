@@ -13,10 +13,24 @@ export function addToBeginning(array, item) {
 }
 
 // Immutably insert an item at a specific position/index within an array
-export function insertItem(array, item, index) {}
+export function insertItem(array, item, index) {
+   const newArray = [
+      // part of the array before the specified index
+      ...array.slice(0, index),
+      // inserted item
+      item,
+      // part of the array after the specified index
+      ...array.slice(index),
+   ];
+   return newArray;
+}
 
 // Immutably replace an item at a specific position/index within an array
-export function replaceItem(array, item, index) {}
+export function replaceItem(array, item, index) {
+   const newArray = array.slice(0);
+   newArray[index] = item;
+   return newArray;
+}
 
 // Immutably remove an item at a specific position/index within an array
 export function removeItem(array, index) {}
